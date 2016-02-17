@@ -5,4 +5,5 @@ class Item < ActiveRecord::Base
   def self.available_items
     Item.where('inventory > 0')
   end
+  
 end
