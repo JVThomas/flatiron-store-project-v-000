@@ -8,7 +8,7 @@
           <li><%= link_to "sign in", new_user_session_path%></li>
           <li><%=link_to "Sign up", new_user_registration_path%></li>
         <%end%>
-          <% if !!@cart %>
+          <% if !!current_cart %>
             <li> <%= link_to "Cart", cart_path(current_cart) %></li>
         <% end %>
     </ul>
