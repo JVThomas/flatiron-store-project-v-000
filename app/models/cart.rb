@@ -14,11 +14,7 @@ class Cart < ActiveRecord::Base
   end
 
   def total
-    total = 0
-    line_items.each do |line_item|
-      total += line_item.quantity * line_item.item.price
-    end
-    total
+    total = Cart.joins(items: :line_items).select('SUM(line_items.quantity * items.price) as grandtotal').where(line_items:{cart_id: self.id}).first.grandtotal
   end
 
   def checkout
