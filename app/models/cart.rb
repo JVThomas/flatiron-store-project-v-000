@@ -11,17 +11,10 @@ class Cart < ActiveRecord::Base
       line_item = self.line_items.build(item_id: item_id)
     end
     line_item
-    #line_item = self.line_items.find_by(item_id: item_id)
-    #if !!line_item
-    #  line_item.quantity += 1
-    #else
-    #  line_item = self.line_items.build(item_id: item_id)
-    #end
-    #line_item
   end
 
   def total
-    total = Cart.joins(items: :line_items).select('SUM(line_items.quantity * items.price) as grandtotal').where(line_items:{cart_id: self.id}).first.grandtotal
+    total = Cart.joins(items: :line_items).select('SUM(line_items.quantity * items.price) as checkout_total').where(line_items:{cart_id: self.id}).first.checkout_total
   end
 
   def checkout
