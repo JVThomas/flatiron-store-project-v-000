@@ -10,7 +10,7 @@
   <% end %> </p>
 <% end %>
 
-<p>Order total: <strong><%= number_to_currency(current_cart.total.to_f/100) %></strong> </p>
+<p>Order total: <strong><%= number_to_currency(@cart.total.to_f/100) %></strong> </p>
 <%if current_cart == @cart%>
   <%= button_to 'Checkout', checkout_path %>
 <%end%>
