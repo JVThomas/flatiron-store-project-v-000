@@ -1,5 +1,5 @@
-<h1><%= item.title %></h1>
-<h2><%= number_to_currency((item.price.to_f/100)) %></h2>
+<h4><%= item.title %></h4>
+<h5><%= number_to_currency((item.price.to_f/100)) %></h5>
 <% if logged_in? %>
   <%= button_to 'Add to Cart', line_items_path(item_id: item) %>
 <%end%>
